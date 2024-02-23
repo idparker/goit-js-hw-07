@@ -5,24 +5,18 @@ function submitHandler(event) {
   event.preventDefault();
 
   const data = {
-    email: event.target.email.value,
-    password: event.target.password.value,
+    email: event.target.email.value.trim(),
+    password: event.target.password.value.replace(" ", "").trim(),
   };
   console.log(data);
 
-  let isEmpty = false;
-
   inputs.forEach((input) => {
     if (input.value === "") {
-      isEmpty = true;
+      alert("All form fields must be filled in");
     }
   });
 
-  if (isEmpty) {
-    alert("All form fields must be filled in");
-  } else {
-    form.reset();
-  }
+  form.reset();
 }
 
-document.addEventListener("submit", submitHandler);
+form.addEventListener("submit", submitHandler);
