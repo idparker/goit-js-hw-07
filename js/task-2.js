@@ -13,11 +13,21 @@ const images = [
   },
 ];
 
-const elements = document.querySelector(".gallery");
+// const elements = document.querySelector(".gallery");
 
-images.forEach((image) => {
-  elements.insertAdjacentHTML(
-    "beforeend",
-    `<li><img src="${image.url}" alt="${image.alt}"></li>`
-  );
-});
+// images.forEach((image) => {
+//   elements.insertAdjacentHTML(
+//     "beforeend",
+//     `<li><img src="${image.url}" alt="${image.alt}"></li>`
+//   );
+// });
+
+const gallery = document.querySelector(".gallery");
+const galleryMarkup = images
+  .map(
+    (image) =>
+      `<li><img src="${image.url}" alt="${image.alt}" class="gallery-img"></li>`
+  )
+  .join("");
+
+gallery.insertAdjacentHTML("beforeend", galleryMarkup);

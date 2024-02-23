@@ -6,15 +6,14 @@ function submitHandler(event) {
 
   const data = {
     email: event.target.email.value.trim(),
-    password: event.target.password.value.replace(" ", "").trim(),
+    password: event.target.password.value.trim(),
   };
-  console.log(data);
 
-  inputs.forEach((input) => {
-    if (input.value === "") {
-      alert("All form fields must be filled in");
-    }
-  });
+  if (event.target.email.value === "" || event.target.password.value === "") {
+    alert("All form fields must be filled in");
+  } else {
+    console.log(data);
+  }
 
   form.reset();
 }
